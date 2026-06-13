@@ -1,0 +1,25 @@
+{
+  "name": "x4pn-server",
+  "version": "1.0.0",
+  "description": "X4PN x402 resource server on Algorand",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts",
+    "dev": "tsx watch index.ts",
+    "dev:fresh": "node scripts/free-port.mjs && tsx watch index.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@hono/node-server": "^2.0.2",
+    "@x402/avm": "^2.12.0",
+    "@x402/core": "^2.12.0",
+    "@x402/hono": "^2.12.0",
+    "dotenv": "^17.4.2",
+    "hono": "^4.12.19"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsx": "^4.22.0",
+    "typescript": "^6.0.3"
+  }
+}

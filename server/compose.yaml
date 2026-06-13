@@ -1,0 +1,37 @@
+services:
+  x4pn:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    container_name: x4pn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - "4021:4021"
+      - "8080:8080"
+      - "8443:8443"
+      - "51820:51820/udp"
+    volumes:
+      - vpn-data:/app/data
+    env_file:
+      - .env
+    environment:
+      - BT_HTTP_BIND=0.0.0.0:8080
+      - BT_WS_BIND=0.0.0.0:8443
+      - BT_WG_PORT=51820
+      - BT_PUBLIC_IP=${PUBLIC_IP:-127.0.0.1}
+      - PUBLIC_IP=${PUBLIC_IP:-127.0.0.1}
+      - HTTP_PORT=8080
+      - WG_LOG_LEVEL=info
+      - FACILITATOR_URL=${FACILITATOR_URL:-https://facilitator.goplausible.xyz}
+      - PORT=4021
+      - BORINGTUN_API_URL=http://127.0.0.1:8080
+      - PRICE_PER_MINUTE_USDC=${PRICE_PER_MINUTE_USDC:-0.001}
+      - DEFAULT_SESSION_MINUTES=${DEFAULT_SESSION_MINUTES:-5}
+      - RENEW_WINDOW_SECONDS=${RENEW_WINDOW_SECONDS:-30}
+    restart: unless-stopped
+
+volumes:
+  vpn-data:

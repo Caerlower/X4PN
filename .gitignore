@@ -1,0 +1,13 @@
+/target
+**/*.rs.bk
+.DS_Store
+.env
+.env.local
+!.env.example
+*.key
+node_modules/
+**/node_modules/
+dist/
+target/
+
+client/src-tauri/target/

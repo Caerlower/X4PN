@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Main window — Vite dev server and VPN IPC","remote":{"urls":["http://localhost:1420","http://localhost:1420/**","http://127.0.0.1:1420","http://127.0.0.1:1420/**"]},"local":true,"windows":["main"],"permissions":["core:default","core:event:default"]}}
